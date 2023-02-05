@@ -1,15 +1,10 @@
 import './App.css';
-import Stripe from './components/Stripe';
+import Stripe from './components/Stripe/index.jsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
-      <body>
         <Stripe />
-      </body>
     </div>
   );
 }

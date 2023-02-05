@@ -1,7 +1,7 @@
-import styles from './index.module.css';
+// import styles from './index.module.css';
 import React, { useState, useEffect } from "react";
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm.jsx';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -15,7 +15,8 @@ export default function Stripe() {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("/create-payment-intent", {
+    const url = 'http://localhost:3001';
+    fetch(url + "/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
@@ -38,12 +39,12 @@ export default function Stripe() {
   };
 
   return (
-    <div className={styles}>
-      {clientSecret && (
+    <div>
+      {clientSecret && (<>
         <Elements options={options} stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
-      )}
+      </>)}
     </div>
   );
 };
