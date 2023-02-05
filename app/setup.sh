@@ -8,3 +8,6 @@ mkdir src/components/Stripe
 touch src/components/Stripe/index.jsx
 touch src/components/Stripe/index.module.css
 touch src/components/Stripe/CheckoutForm.jsx
+touch src/components/Stripe/Subscription.jsx
+touch src/components/Stripe/Subscription.module.css
+touch src/components/Stripe/StripeElements.jsx
